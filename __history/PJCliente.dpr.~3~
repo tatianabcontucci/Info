@@ -1,0 +1,16 @@
+program PJCliente;
+
+uses
+  Forms,
+  uCadCliente in 'uCadCliente.pas' {frmCliente},
+  uDMCliente in 'uDMCliente.pas' {dmCliente: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmCliente, frmCliente);
+  Application.CreateForm(TdmCliente, dmCliente);
+  Application.Run;
+end.

@@ -1,0 +1,69 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object cdsCliente: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 88
+    Top = 56
+    object cdsClienteCodCliente: TIntegerField
+      FieldName = 'CodCliente'
+    end
+    object cdsClienteNome: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object cdsClienteRG: TStringField
+      FieldName = 'RG'
+    end
+    object cdsClienteCPF: TStringField
+      FieldName = 'CPF'
+    end
+    object cdsClienteDDD: TIntegerField
+      FieldName = 'DDD'
+    end
+    object cdsClientetelefone: TStringField
+      FieldName = 'telefone'
+      Size = 15
+    end
+    object cdsClienteemail: TStringField
+      FieldName = 'email'
+      Size = 100
+    end
+    object cdsClienteendereco: TStringField
+      FieldName = 'endereco'
+      Size = 100
+    end
+    object cdsClientecep: TStringField
+      FieldName = 'cep'
+    end
+    object cdsClienteLogradouro: TStringField
+      FieldName = 'Logradouro'
+      Size = 100
+    end
+    object cdsClienteNumero: TIntegerField
+      FieldName = 'Numero'
+    end
+    object cdsClienteComplemento: TStringField
+      FieldName = 'Complemento'
+      Size = 100
+    end
+    object cdsClienteBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 100
+    end
+    object cdsClienteCidade: TStringField
+      FieldName = 'Cidade'
+      Size = 100
+    end
+    object cdsClienteEstado: TStringField
+      FieldName = 'Estado'
+      Size = 2
+    end
+    object cdsClientePais: TStringField
+      FieldName = 'Pais'
+      Size = 100
+    end
+  end
+end

@@ -1,0 +1,116 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  Height = 264
+  Width = 408
+  object cdsCliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 88
+    Top = 56
+    Data = {
+      A50100009619E0BD010000001800000010000000000003000000A5010A436F64
+      436C69656E74650400010000000000044E6F6D65010049000000010005574944
+      5448020002006400025247010049000000010005574944544802000200140003
+      4350460100490000000100055749445448020002001400034444440400010000
+      0000000874656C65666F6E650100490000000100055749445448020002000F00
+      05656D61696C010049000000010005574944544802000200640008656E646572
+      65636F0100490000000100055749445448020002006400036365700100490000
+      0001000557494454480200020014000A4C6F677261646F75726F010049000000
+      0100055749445448020002006400064E756D65726F04000100000000000B436F
+      6D706C656D656E746F0100490000000100055749445448020002006400064261
+      6972726F01004900000001000557494454480200020064000643696461646501
+      004900000001000557494454480200020064000645737461646F010049000000
+      0100055749445448020002000200045061697301004900000001000557494454
+      480200020064000000}
+    object cdsClienteCodCliente: TIntegerField
+      DisplayLabel = 'C'#243'digo'
+      DisplayWidth = 11
+      FieldName = 'CodCliente'
+    end
+    object cdsClienteNome: TStringField
+      DisplayWidth = 27
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object cdsClienteRG: TStringField
+      DisplayWidth = 50
+      FieldName = 'RG'
+      EditMask = '99.999.999-9;'
+    end
+    object cdsClienteCPF: TStringField
+      DisplayWidth = 50
+      FieldName = 'CPF'
+    end
+    object cdsClienteDDD: TIntegerField
+      DisplayWidth = 5
+      FieldName = 'DDD'
+    end
+    object cdsClientetelefone: TStringField
+      DisplayLabel = 'Telefone'
+      DisplayWidth = 15
+      FieldName = 'telefone'
+      Size = 15
+    end
+    object cdsClienteemail: TStringField
+      DisplayLabel = 'Email'
+      DisplayWidth = 28
+      FieldName = 'email'
+      Size = 100
+    end
+    object cdsClienteendereco: TStringField
+      DisplayLabel = 'Endere'#231'o'
+      DisplayWidth = 20
+      FieldName = 'endereco'
+      Size = 100
+    end
+    object cdsClientecep: TStringField
+      DisplayLabel = 'CEP'
+      DisplayWidth = 15
+      FieldName = 'cep'
+      EditMask = '99999-999;1;_'
+    end
+    object cdsClienteLogradouro: TStringField
+      DisplayWidth = 31
+      FieldName = 'Logradouro'
+      Size = 100
+    end
+    object cdsClienteNumero: TIntegerField
+      DisplayLabel = 'N'#250'mero'
+      DisplayWidth = 8
+      FieldName = 'Numero'
+    end
+    object cdsClienteComplemento: TStringField
+      DisplayWidth = 25
+      FieldName = 'Complemento'
+      Size = 100
+    end
+    object cdsClienteBairro: TStringField
+      DisplayWidth = 21
+      FieldName = 'Bairro'
+      Size = 100
+    end
+    object cdsClienteCidade: TStringField
+      DisplayWidth = 12
+      FieldName = 'Cidade'
+      Size = 100
+    end
+    object cdsClienteEstado: TStringField
+      DisplayLabel = 'UF'
+      DisplayWidth = 8
+      FieldName = 'Estado'
+      Size = 2
+    end
+    object cdsClientePais: TStringField
+      DisplayLabel = 'Pa'#237's'
+      DisplayWidth = 15
+      FieldName = 'Pais'
+      Size = 100
+    end
+  end
+  object dscliente: TDataSource
+    DataSet = cdsCliente
+    Left = 128
+    Top = 56
+  end
+end

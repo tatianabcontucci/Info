@@ -1,0 +1,90 @@
+object dmCliente: TdmCliente
+  OldCreateOrder = False
+  Height = 264
+  Width = 408
+  object cdsCliente: TClientDataSet
+    Active = True
+    Aggregates = <>
+    Params = <>
+    Left = 88
+    Top = 56
+    Data = {
+      A50100009619E0BD010000001800000010000000000003000000A5010A436F64
+      436C69656E74650400010000000000044E6F6D65010049000000010005574944
+      5448020002006400025247010049000000010005574944544802000200140003
+      4350460100490000000100055749445448020002001400034444440400010000
+      0000000874656C65666F6E650100490000000100055749445448020002000F00
+      05656D61696C010049000000010005574944544802000200640008656E646572
+      65636F0100490000000100055749445448020002006400036365700100490000
+      0001000557494454480200020014000A4C6F677261646F75726F010049000000
+      0100055749445448020002006400064E756D65726F04000100000000000B436F
+      6D706C656D656E746F0100490000000100055749445448020002006400064261
+      6972726F01004900000001000557494454480200020064000643696461646501
+      004900000001000557494454480200020064000645737461646F010049000000
+      0100055749445448020002000200045061697301004900000001000557494454
+      480200020064000000}
+    object cdsClienteCodCliente: TIntegerField
+      FieldName = 'CodCliente'
+    end
+    object cdsClienteNome: TStringField
+      FieldName = 'Nome'
+      Size = 100
+    end
+    object cdsClienteRG: TStringField
+      FieldName = 'RG'
+    end
+    object cdsClienteCPF: TStringField
+      FieldName = 'CPF'
+    end
+    object cdsClienteDDD: TIntegerField
+      FieldName = 'DDD'
+    end
+    object cdsClientetelefone: TStringField
+      FieldName = 'telefone'
+      Size = 15
+    end
+    object cdsClienteemail: TStringField
+      FieldName = 'email'
+      Size = 100
+    end
+    object cdsClienteendereco: TStringField
+      FieldName = 'endereco'
+      Size = 100
+    end
+    object cdsClientecep: TStringField
+      FieldName = 'cep'
+    end
+    object cdsClienteLogradouro: TStringField
+      FieldName = 'Logradouro'
+      Size = 100
+    end
+    object cdsClienteNumero: TIntegerField
+      FieldName = 'Numero'
+    end
+    object cdsClienteComplemento: TStringField
+      FieldName = 'Complemento'
+      Size = 100
+    end
+    object cdsClienteBairro: TStringField
+      FieldName = 'Bairro'
+      Size = 100
+    end
+    object cdsClienteCidade: TStringField
+      FieldName = 'Cidade'
+      Size = 100
+    end
+    object cdsClienteEstado: TStringField
+      FieldName = 'Estado'
+      Size = 2
+    end
+    object cdsClientePais: TStringField
+      FieldName = 'Pais'
+      Size = 100
+    end
+  end
+  object dscliente: TDataSource
+    DataSet = cdsCliente
+    Left = 128
+    Top = 56
+  end
+end

@@ -1,0 +1,40 @@
+unit uDMCliente;
+
+interface
+
+uses
+  SysUtils, Classes, DB, DBClient;
+
+type
+  TdmCliente = class(TDataModule)
+    cdsCliente: TClientDataSet;
+    cdsClienteCodCliente: TIntegerField;
+    cdsClienteNome: TStringField;
+    cdsClienteRG: TStringField;
+    cdsClienteCPF: TStringField;
+    cdsClienteDDD: TIntegerField;
+    cdsClientetelefone: TStringField;
+    cdsClienteemail: TStringField;
+    cdsClienteendereco: TStringField;
+    cdsClientecep: TStringField;
+    cdsClienteLogradouro: TStringField;
+    cdsClienteNumero: TIntegerField;
+    cdsClienteComplemento: TStringField;
+    cdsClienteBairro: TStringField;
+    cdsClienteCidade: TStringField;
+    cdsClienteEstado: TStringField;
+    cdsClientePais: TStringField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmCliente: TdmCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.

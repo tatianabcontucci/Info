@@ -1,0 +1,16 @@
+program PJCliente;
+
+uses
+  Forms,
+  uCadCliente_ in 'uCadCliente_.pas' {frmCliente},
+  uEmail in 'uEmail.pas' {fmEnvioEmail},
+  uDM in 'uDM.pas' {dm: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmCliente, frmCliente);
+  Application.Run;
+end.

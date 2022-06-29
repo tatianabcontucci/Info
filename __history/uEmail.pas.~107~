@@ -1,0 +1,129 @@
+unit uEmail;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.ComCtrls, IdMessage,
+  IdTCPConnection, IdTCPClient, IdExplicitTLSClientServerBase, IdMessageClient, IdSMTPBase, IdSMTP,
+  IdBaseComponent, IdComponent, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL,
+  IdSSLOpenSSL, Vcl.Buttons, Vcl.Mask, Vcl.DBCtrls, Data.DB, Datasnap.DBClient, uDM, IdAttachment,idAttachmentFile;
+
+type
+  TfmEnvioEmail = class(TForm)
+    pgGeral: TPageControl;
+    tbConfiguracao: TTabSheet;
+    Panel1: TPanel;
+    Bevel2: TBevel;
+    GroupBox3: TGroupBox;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
+    btSalvar: TSpeedButton;
+    edtSenha: TDBEdit;
+    edtHost: TDBEdit;
+    edtPorta: TDBEdit;
+    edtUser: TDBEdit;
+    pnlTitulo: TPanel;
+    procedure btSalvarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+    Fanexo: String;
+    procedure EnviarEmail;
+  public
+    { Public declarations }
+    FDestinatario: String;
+  end;
+
+var
+  fmEnvioEmail: TfmEnvioEmail;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfmEnvioEmail.EnviarEmail;
+var
+  IdAttach: TIdAttachmentFile;
+begin
+  IdSMTP1.Username := dm.cdsConfigEmailusuario.AsString;
+  IdSMTP1.Password := dm.cdsConfigEmailsenha.AsString;
+  IdSMTP1.Host := dm.cdsConfigEmailhost.AsString;
+  IdSMTP1.Port := dm.cdsConfigEmailporta.AsInteger;
+
+  try
+    IdSMTP1.Connect;
+  except
+   On E:Exception do
+    begin
+      MessageDlg('Erro ao conectar no servidor: ' +
+        E.Message, mtWarning, [mbOK], 0);
+    end;
+  end;
+
+  IdMessage1.From.Text := edtRemetente.Text;
+  IdMessage1.Subject   := edtAssunto.Text;
+  IdMessage1.MessageParts.Clear;
+  IdMessage1.Body.Text := edtTextoemail.Lines.Text;
+  IdMessage1.Recipients.EMailAddresses := edtDestinatario.Text;
+
+  if edtCC.Text <> EmptyStr then
+    IdMessage1.CcList.EMailAddresses := edtCC.Text;
+
+  if edtCco.Text <> EmptyStr then
+  IdMessage1.BccList.EMailAddresses := edtCco.Text;
+
+   IdMessage1.MessageParts.Clear;
+    if FileExists(FAnexo) then
+    begin
+      IdAttach := TIdAttachmentFile.Create(IdMessage1.MessageParts, FAnexo);
+      with IdAttach do
+      begin
+        FileName    := FAnexo;
+        ContentType := 'application/pdf/xlsx;';
+        CharSet     := 'ISO-8859-1';
+        DisplayName := ExtractFileName(FAnexo);
+      end;
+    end;
+
+  try
+    try
+      IdSMTP1.Send(IdMessage1);
+      MessageDlg('Email enviado com sucesso.', mtInformation, [mbOk], 0, mbOk);
+    except
+      On E:Exception do
+      begin
+        MessageDlg('Erro ao enviar a mensagem: ' +
+          E.Message, mtWarning, [mbOK], 0);
+      end;
+    end;
+  finally
+    IdSMTP1.Disconnect;
+  end;
+end;
+
+procedure TfmEnvioEmail.FormShow(Sender: TObject);
+begin
+  edtRemetente.Clear;
+  edtDestinatario.Text := FDestinatario;
+  edtCC.Clear;
+  edtCco.Clear;
+  edtAssunto.Clear;
+  edtTextoemail.Clear;
+  FAnexo := EmptyStr;
+  dm.cdsConfigEmail.Open;
+  pgGeral.ActivePage := tbEmail;
+  edtRemetente.Text := dm.cdsConfigEmailusuario.Text;
+  edtRemetente.SetFocus;
+end;
+
+procedure TfmEnvioEmail.btSalvarClick(Sender: TObject);
+begin
+  dm.cdsConfigEmail.Post;
+  pgGeral.ActivePage := tbEmail;
+  Close;
+end;
+
+end.

@@ -1,0 +1,23 @@
+unit uDMCliente;
+
+interface
+
+uses
+  SysUtils, Classes;
+
+type
+  TdmCliente = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmCliente: TdmCliente;
+
+implementation
+
+{$R *.dfm}
+
+end.
